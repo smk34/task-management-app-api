@@ -100,7 +100,7 @@ TaskController.getTask = [
       }
       //To get tasks by task name
       if (taskName) {
-        query = { taskName: { $regex: taskName, $options: "i" } };
+        query = { taskTitle: { $regex: `.*${taskName}.*`, $options: "i" } };
       }
       //If neither id nor taskStatus nor taskName is given, return all tasks
       if (!id && !taskStatus && !taskName) {
@@ -108,6 +108,7 @@ TaskController.getTask = [
       }
       //Find tasks based on the query
       const tasks = await Task.find(query);
+      // console.log("task", tasks);
       //If no tasks are found
       if (!tasks || tasks.length === 0) {
         return notFoundResponse(res, {
