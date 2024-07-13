@@ -16,8 +16,8 @@ const taskSchema = new Schema(
     },
     taskStatus: {
       type: String,
-      enum: ["assinged", "ongoing", "completed", "pending"],
-      default: "pending",
+      enum: ["done", "inProgress", "todo"],
+      default: "todo",
     },
     assingedToUsers: [
       {
@@ -37,4 +37,5 @@ const taskSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Task", taskSchema);
+const Task = mongoose.model("Task", taskSchema);
+export default Task;
