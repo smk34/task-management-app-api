@@ -6,7 +6,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import compression from "compression";
-import router from "./src/routes";
+import router from "./src/routes/index.js";
 
 dotenv.config();
 const app = express();
