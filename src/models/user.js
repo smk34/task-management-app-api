@@ -12,10 +12,10 @@ const userSchema = new Schema(
       type: String,
       trim: true,
       require: [true, "User email is required"],
+      lowercase: true
     },
     encryPassword: {
       type: String,
-      required: [true, "Password is required"],
     },
     salt: String,
     isActive: {
@@ -61,4 +61,5 @@ userSchema.methods = {
   },
 };
 
-module.exports = mongoose.Model("User",userSchema)
+const User = mongoose.model("User", userSchema);
+export default User;

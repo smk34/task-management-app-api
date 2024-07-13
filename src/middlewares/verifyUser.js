@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { unauthorizedResponse } from "../utils/responses";
+import { unauthorizedResponse } from "../utils/responses.js";
 
 const config = process.env;
 
